@@ -1,4 +1,44 @@
 ﻿
+# Containers: A Historical and Practical Overview
+
+This blog series and corresponding talks aim to provide a practical view of containers from a historical perspective, exploring modern cloud architectures layer by layer. Starting at the Linux Kernel level and culminating in the development of secure cloud-native applications, this journey will help you understand the intricate workings of containers and their integration into orchestration software like Kubernetes.
+
+## Part I: Kernel Space
+
+The first part focuses on Linux kernel-related topics to build a solid foundation for understanding containers. We will delve into the history of UNIX and Linux, discussing concepts like chroot, namespaces, and cgroups, and explore these through hands-on examples.
+
+### What Are Containers?
+
+Containers are often misunderstood as lightweight virtual machines (VMs). However, they are isolated groups of processes running on a single host, providing specific features that have evolved from various historical solutions within the Linux kernel.
+
+### Key Requirements of Containers
+
+1. Single Host: Containers must run on a single host.
+2. Process Groups: Containers are groups of processes with a root process.
+3. Isolation: Containers need to be isolated, which we'll define in detail.
+4. Common Features: Containers must fulfill common features, which we will explore.
+
+### Chroot: The Early Days
+
+The concept of changing the root directory of a process (chroot) originated in UNIX Version 7 (1979) and later in BSD. In Linux, the chroot command changes the root directory for a running process, creating an isolated environment or "jail." However, chroot has limitations, including the ability to escape the jail.
+
+### Creating a Simple Chroot Environment
+
+Here's a basic example of creating a chroot environment:
+
+```bash
+mkdir -p new-root/{bin,lib64}
+cp /bin/bash new-root/bin
+cp /lib64/{ld-linux-x86-64.so*,libc.so*,libdl.so.2,libreadline.so*,libtinfo.so*} new-root/lib64
+sudo chroot new-root
+
+
+
+
+
+
+
+
 **Containers: A Historical and Practical Overview**
 
 This  blog  series  and  corresponding  talks  aim  to  provide  a  practical  view  of  containers  from  a historical perspective, exploring modern cloud architectures layer by layer. Starting at the Linux Kernel level and culminating in the development of secure cloud-native applications, this journey will help you understand the intricate workings of containers and their integration into orchestration software like Kubernetes.
